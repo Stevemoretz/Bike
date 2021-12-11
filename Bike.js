@@ -98,14 +98,16 @@ const Bike = (props) => {
             }}>
                 {
                     [
-                        "/images/11.png"
-                        "/images/9.png"
-                        "/images/8.png"
-                        "/images/1.png"
+                        "/images/11.png",
+                        "/images/9.png",
+                        "/images/8.png",
+                        "/images/1.png",
                     ].map((src)=>{
-                        <button onClick={handleClick.bind(null,src)}>
+                        return (  
+                         <button onClick={handleClick.bind(null,src)}>
                             <img className= 'w1' src={src} alt="logo" />
                         </button>
+                            )
                     })
                 }
             </div>
