@@ -27,7 +27,7 @@ const Bike = (props) => {
         to: {
             translateX:props.close ? 100 : 235,
             translateY:props.close ? -150 : -165,
-            opacity:animation? '0' : '1' ,
+            opacity:animation? 1 : 0 ,
         }
 
     });
@@ -70,7 +70,8 @@ const Bike = (props) => {
 
     useEffect(() => {
         if (select!== active){
-            widgetAnimationStyle2();
+            //run fade animation
+            setanimation(true);
         }
     }, [select,active]);
 
