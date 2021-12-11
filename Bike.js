@@ -69,47 +69,47 @@ const Bike = (props) => {
 
 
     useEffect(() => {
-          if (select!== active){
-              widgetAnimationStyle2();
-          }
+        if (select!== active){
+            widgetAnimationStyle2();
+        }
     }, [select,active]);
 
-    const handleClick = () => {
-        setActive('/images/11.png');
+    const handleClick = (src) => {
+        setActive(src);
     }
     return (
-                <>
-                    <animated.div className="class">
-                        <animated.img style={{rotate:widgetAnimationStyle2.rotate,translateX: widgetAnimationStyle.translateX, translateY: widgetAnimationStyle.translateY}} src={("/images/b1.png")} alt="logo"/>
+        <>
+            <animated.div className="class">
+                <animated.img style={{rotate:widgetAnimationStyle2.rotate,translateX: widgetAnimationStyle.translateX, translateY: widgetAnimationStyle.translateY}} src={("/images/b1.png")} alt="logo"/>
 
 
-                        <animated.img style={{translateX: widgetAnimationStyle1.translateX, translateY: widgetAnimationStyle1.translateY,width:140,height:140}} className={className} src={("/images/1.png")} alt="logo"/>
-                        <animated.img style={{translateX: widgetAnimationStyle2.translateX, translateY: widgetAnimationStyle2.translateY,width:140,height:140,opacity: widgetAnimationStyle2.opacity}} className={classNam} src={("/images/1.png")} alt="logo"/>
+                <animated.img style={{translateX: widgetAnimationStyle1.translateX, translateY: widgetAnimationStyle1.translateY,width:140,height:140}} className={className} src={("/images/1.png")} alt="logo"/>
+                <animated.img style={{translateX: widgetAnimationStyle2.translateX, translateY: widgetAnimationStyle2.translateY,width:140,height:140,opacity: widgetAnimationStyle2.opacity}} className={classNam} src={("/images/1.png")} alt="logo"/>
 
-                        <animated.img style={{rotate:widgetAnimationStyle3.rotate,width:500,height:310,translateX: widgetAnimationStyle3.translateX, translateY: widgetAnimationStyle3.translateY}} className={className1} src={("/images/4.png")} alt="logo"/>
-                        <animated.img style={{rotate:widgetAnimationStyle2.rotate,width:500,height:310.2,translateX: widgetAnimationStyle4.translateX, translateY: widgetAnimationStyle4.translateY}} className={classNa} src={("/images/5.png")} alt="logo"/>
-                    </animated.div>
+                <animated.img style={{rotate:widgetAnimationStyle3.rotate,width:500,height:310,translateX: widgetAnimationStyle3.translateX, translateY: widgetAnimationStyle3.translateY}} className={className1} src={("/images/4.png")} alt="logo"/>
+                <animated.img style={{rotate:widgetAnimationStyle2.rotate,width:500,height:310.2,translateX: widgetAnimationStyle4.translateX, translateY: widgetAnimationStyle4.translateY}} className={classNa} src={("/images/5.png")} alt="logo"/>
+            </animated.div>
 
 
-                  <div style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                        }}>
-                      <button onClick={handleClick}>
-                          <img  className= 'w1' src={("/images/11.png")} alt="logo" />
-                      </button>
-                      <button onClick={handleClick}>
-                          <img className= 'w1' src={("/images/9.png")} alt="logo" />
-                      </button>
-                      <button onClick={handleClick}>
-                          <img className= 'w1' src={("/images/8.png")} alt="logo" />
-                      </button>
-                      <button onClick={handleClick}>
-                         <img className='w1' src={("/images/1.png")} alt="logo" />
-                      </button>
-                  </div>
-  </>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+            }}>
+                {
+                    [
+                        "/images/11.png"
+                        "/images/9.png"
+                        "/images/8.png"
+                        "/images/1.png"
+                    ].map((src)=>{
+                        <button onClick={handleClick.bind(null,src)}>
+                            <img className= 'w1' src={src} alt="logo" />
+                        </button>
+                    })
+                }
+            </div>
+        </>
     )
 }
 export default Bike;
